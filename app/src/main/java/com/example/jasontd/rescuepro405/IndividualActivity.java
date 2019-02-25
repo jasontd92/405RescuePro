@@ -59,9 +59,9 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
 
         long actualTime = event.timestamp;
 
-        //assumes object in near freefall, for MORE than quarter a second. 3 meter fall lasts ~.78 seconds
+        //assumes object in near freefall, for MORE than a tenth of a second. 3 meter fall lasts ~.78 seconds
         if (x < 2){
-            if (actualTime - lastUpdate < 250){
+            if (actualTime - lastUpdate < 100){
                 return;
             }
             lastUpdate = actualTime;
