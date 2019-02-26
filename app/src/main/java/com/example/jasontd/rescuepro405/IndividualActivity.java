@@ -20,11 +20,11 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
     private boolean crashMode;
     private float testMag;
     private float highestMag = 0;
-    private float lowestMag = 0;
+    private float lowestMag = 10;
     private float fallMag = 0;
     private float accelMagnitude;
     private float testTime;
-    private StringBuilder testLog;
+    private StringBuilder testLog = new StringBuilder();
     //private View view;
 
     @Override
@@ -67,8 +67,8 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
         
         long actualTime = event.timestamp;
         
-        if (y > highestMag){highestMag = y;}
-        if (y < lowestMag){lowestMag = y;}
+        if (accelMagnitude > highestMag){highestMag = accelMagnitude;}
+        if (accelMagnitude < lowestMag){lowestMag = accelMagnitude;}
         
         //assumes object in near freefall, for MORE than 1.5 seconds. 3 meter fall lasts ~1.75 seconds
         if (accelMagnitude< 2){
