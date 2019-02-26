@@ -18,6 +18,13 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
     private SensorManager sensorManager;
     private long lastUpdate;
     private boolean crashMode;
+    private float testMag;
+    private float highestMag = 0;
+    private float lowestMag = 0;
+    private float fallMag = 0;
+    private float accelMagnitude;
+    private float testTime;
+    private StringBuilder testLog;
     //private View view;
 
     @Override
@@ -56,32 +63,58 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
         float x = values[0]; //laying flat on table, pushed from left to right is (+, aka >9.81)
         float y = values[1]; //laying on table, raised to sky is (+, >9.81)
         float z = values[2]; //laying flat on desk, z is away from/closer from user
-
+        accelMagnitude = vectorNorm(x,y,z);
+        
         long actualTime = event.timestamp;
-
-        //assumes object in near freefall, for MORE than a tenth of a second. 3 meter fall lasts ~.78 seconds
-        if (x < 2){
-            if (actualTime - lastUpdate < 100){
+        
+        if (y > highestMag){highestMag = y;}
+        if (y < lowestMag){lowestMag = y;}
+        
+        //assumes object in near freefall, for MORE than 1.5 seconds. 3 meter fall lasts ~1.75 seconds
+        if (accelMagnitude< 2){
+            if (actualTime - lastUpdate < 1500){
                 return;
             }
+            testTime = actualTime - lastUpdate; //fall time in milliseconds
+            fallMag = accelMagnitude;
             lastUpdate = actualTime;
             crashMode = true;
+            testLog.append("Fall detected at " + lastUpdate + "\n");
             updateStatus(crashMode);
             //call EMS/family
         }
+        mStatus.setText("Current mag value: " + accelMagnitude + "\n Highest mag so far: " +
+                highestMag + "\n Lowest mag so far: " + lowestMag + "\n This fall: " + fallMag +
+                "\n Fall time: " +testTime + "\n" + testLog);
+
 
     }
 
+    private float vectorNorm(float x, float y, float z){
+        float squareX = (float) Math.pow(x,2);
+        float squareY = (float) Math.pow(y,2); 
+        float squareZ = (float) Math.pow(z,2);
+        return (float) Math.sqrt( squareX + squareY + squareZ );
+    }
+
     private void updateStatus(boolean crashmode){
+
         if (crashmode == true){
-            mStatus.setText("Crash detected! Notifying Emergency contact shortly..."); //counter?
+            //mStatus.setText("Crash detected! Notifying Emergency contact shortly..."); //counter?
+            mStatus.setText("Current mag value: " + accelMagnitude + "\n Highest mag so far: " +
+                    highestMag + "\n Lowest mag so far: " + lowestMag + "\n This fall: " + fallMag  +
+                    "\n Fall time: " +testTime + "\n" + testLog);
             mStatus.setBackgroundColor(Color.RED);
             mOkay.setEnabled(true);
             mOkay.setBackgroundColor(Color.GREEN);
             //notify Emergency contacts
         }
         else {
-            mStatus.setText("Nothing to Report"); //counter?
+            //mStatus.setText("Nothing to Report"); //counter?
+            mStatus.setText("Current mag value: " + accelMagnitude + "\n Highest mag so far: " +
+                    highestMag + "\n Lowest mag so far: " + lowestMag + "\n This fall: " + fallMag
+                    +
+                    "\n Fall time: " +testTime + "\n" + testLog);
             mStatus.setBackgroundColor(Color.GREEN);
             mOkay.setEnabled(false);
             mOkay.setBackgroundColor(Color.TRANSPARENT);
