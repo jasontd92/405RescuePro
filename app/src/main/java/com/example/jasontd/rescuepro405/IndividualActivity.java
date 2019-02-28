@@ -3,6 +3,10 @@ package com.example.jasontd.rescuepro405;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RectShape;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -29,6 +33,8 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
     private float accelMagnitude;
     private float testTime;
     private StringBuilder testLog = new StringBuilder();
+    private String green = new String("#7cff00");
+    private String red = new String("#FF0000");
     //private View view;
 
     @Override
@@ -38,6 +44,8 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        setBackground(green);
 
         mStatus = (TextView) findViewById(R.id.status);
         mOkay = (Button) findViewById(R.id.alert);
@@ -111,7 +119,8 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
             mStatus.setText("Current mag value: " + accelMagnitude + "\n Highest mag so far: " +
                     highestMag + "\n Lowest mag so far: " + lowestMag + "\n This fall: " + fallMag  +
                     "\n Fall time: " +testTime + "\n" + testLog);
-            mStatus.setBackgroundColor(Color.RED);
+            //mStatus.setBackgroundColor(Color.RED);
+            setBackground(red);
             mOkay.setEnabled(true);
             mOkay.setBackgroundColor(Color.GREEN);
             //notify Emergency contacts
@@ -122,7 +131,8 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
                     highestMag + "\n Lowest mag so far: " + lowestMag + "\n This fall: " + fallMag
                     +
                     "\n Fall time: " +testTime + "\n" + testLog);
-            mStatus.setBackgroundColor(Color.GREEN);
+            //mStatus.setBackgroundColor(Color.GREEN);
+            setBackground(green);
             mOkay.setEnabled(false);
             mOkay.setBackgroundColor(Color.TRANSPARENT);
 
@@ -176,5 +186,14 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
             intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         }
         context.startActivity(intent);
+    }
+
+    private void setBackground(String color){
+        View v = findViewById(android.R.id.content);
+        int h = v.getHeight();
+        ShapeDrawable mDrawable = new ShapeDrawable(new RectShape());
+        mDrawable.getPaint().setShader(new LinearGradient(0, 0, 0, h, Color.parseColor("#330000FF"),
+                Color.parseColor(color), Shader.TileMode.REPEAT));
+        v.setBackgroundDrawable(mDrawable);
     }
 }

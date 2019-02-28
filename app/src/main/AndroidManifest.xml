@@ -23,10 +23,12 @@
         <activity
             android:name=".IndividualActivity"
             android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/employee_view"
             />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/manager_view"/>
     </application>
 
 </manifest>
