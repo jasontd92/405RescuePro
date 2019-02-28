@@ -1,5 +1,7 @@
 package com.example.jasontd.rescuepro405;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -7,6 +9,8 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -31,6 +35,9 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_individual);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mStatus = (TextView) findViewById(R.id.status);
         mOkay = (Button) findViewById(R.id.alert);
@@ -141,5 +148,33 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
         // unregister listener
         super.onPause();
         sensorManager.unregisterListener(this);
+    }
+
+    //Up button
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                startTopActivity(this.getApplicationContext(), false);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    //Logging out or just returning to MapFragment
+    private void startTopActivity(Context context, boolean newInstance)
+    {
+        Intent intent = new Intent(context, LoginActivity.class);
+        if (newInstance)
+        {
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        }
+        else
+        {
+            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        }
+        context.startActivity(intent);
     }
 }
