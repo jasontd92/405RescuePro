@@ -34,7 +34,9 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="30dp"
-            android:paddingLeft="90dp">
+            android:paddingLeft="90dp"
+            android:onClick="showInfo"
+            android:background="@android:drawable/list_selector_background">
 
             <TextView
                 android:layout_width="match_parent"
@@ -54,7 +56,9 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="30dp"
-            android:paddingLeft="90dp">
+            android:paddingLeft="90dp"
+            android:onClick="showInfo"
+            android:background="@android:drawable/list_selector_background">
 
             <TextView
                 android:layout_width="match_parent"
@@ -74,7 +78,9 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="30dp"
-            android:paddingLeft="90dp">
+            android:paddingLeft="90dp"
+            android:onClick="showInfo"
+            android:background="@android:drawable/list_selector_background">
 
             <TextView
                 android:layout_width="match_parent"
@@ -94,7 +100,9 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="30dp"
-            android:paddingLeft="90dp">
+            android:paddingLeft="90dp"
+            android:onClick="showInfo"
+            android:background="@android:drawable/list_selector_background">
 
             <TextView
                 android:layout_width="match_parent"

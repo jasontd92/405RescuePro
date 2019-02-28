@@ -1,10 +1,13 @@
 package com.example.jasontd.rescuepro405;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,4 +44,15 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    public void showInfo(View view)
+    {
+        Intent intent = new Intent(this, InfoActivity.class);
+        Bundle b = new Bundle();
+        TableRow row = (TableRow)view;
+        TextView personName = (TextView)row.getChildAt(0);
+        b.putString("name", personName.getText().toString());
+        intent.putExtras(b);
+        startActivity(intent);
+        finish();
+    }
 }
