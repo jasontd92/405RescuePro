@@ -90,13 +90,15 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
             if (actualTime - lastUpdate < 1500){
                 return;
             }
-            testTime = actualTime - lastUpdate; //fall time in milliseconds
-            fallMag = accelMagnitude;
-            lastUpdate = actualTime;
-            crashMode = true;
-            testLog.append("Fall detected at " + lastUpdate + "\n");
-            updateStatus(crashMode);
-            //call EMS/family
+            else {
+                testTime = actualTime - lastUpdate; //fall time in milliseconds
+                fallMag = accelMagnitude;
+                lastUpdate = actualTime;
+                crashMode = true;
+                testLog.append("Fall detected at " + lastUpdate + "\n");
+                updateStatus(crashMode);
+                //call EMS/family
+            }
         }
         mStatus.setText("Current mag value: " + accelMagnitude + "\n Highest mag so far: " +
                 highestMag + "\n Lowest mag so far: " + lowestMag + "\n This fall: " + fallMag +

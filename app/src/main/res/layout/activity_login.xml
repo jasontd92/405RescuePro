@@ -12,6 +12,12 @@
         android:orientation="vertical"
         android:gravity="center">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:id="@+id/main_logo"/>
+
         <Button
             android:id="@+id/manager_login"
             android:layout_width="100dp"
