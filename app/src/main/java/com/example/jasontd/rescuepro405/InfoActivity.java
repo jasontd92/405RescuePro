@@ -40,6 +40,30 @@ public class InfoActivity extends AppCompatActivity {
                 txtSpeed.setText("N/A");
                 btnCall.setText("Call John");
             }
+            else if (name.equals("Jane Smith"))
+            {
+                txtVehicle.setText("Chevrolet 2016");
+                txtTime.setText("N/A");
+                txtLocation.setText("Pasco, WA");
+                txtSpeed.setText("N/A");
+                btnCall.setText("Call Jane");
+            }
+            else if (name.equals("Jack Murdoch"))
+            {
+                txtVehicle.setText("Dodge Ram 2015");
+                txtTime.setText("N/A");
+                txtLocation.setText("Kennewick, WA");
+                txtSpeed.setText("N/A");
+                btnCall.setText("Call Jack");
+            }
+            else if (name.equals("Michael Stevenson"))
+            {
+                txtVehicle.setText("Ford F-150 2011");
+                txtTime.setText("4:05 PM");
+                txtLocation.setText("Payson, UT");
+                txtSpeed.setText("60mph");
+                btnCall.setText("Call Michael");
+            }
         }
     }
 }
