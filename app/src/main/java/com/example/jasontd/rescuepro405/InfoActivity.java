@@ -17,7 +17,7 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        this.getSupportActionBar().setTitle("RescuePro");
+        this.getSupportActionBar().setTitle("Employee Status");
 
         TextView txtName = (TextView)findViewById(R.id.name);
         TextView txtVehicle = (TextView)findViewById(R.id.vehicle);
@@ -34,10 +34,10 @@ public class InfoActivity extends AppCompatActivity {
 
             if (name.equals("John Doe"))
             {
-                txtVehicle.setText("Ford F-150 2013");
-                txtTime.setText("N/A");
-                txtLocation.setText("Boise, ID");
-                txtSpeed.setText("N/A");
+                txtVehicle.setText("Vehicle: Ford F-150 2013");
+                txtTime.setText("Time of Accident: N/A");
+                txtLocation.setText("Location: Boise, ID");
+                txtSpeed.setText("Crash Speed: N/A");
                 btnCall.setText("Call John");
             }
             else if (name.equals("Jane Smith"))

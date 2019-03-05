@@ -100,9 +100,9 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
                 //call EMS/family
             }
         }
-        mStatus.setText("Current mag value: " + accelMagnitude + "\n Highest mag so far: " +
+        /*mStatus.setText("Current mag value: " + accelMagnitude + "\n Highest mag so far: " +
                 highestMag + "\n Lowest mag so far: " + lowestMag + "\n This fall: " + fallMag +
-                "\n Fall time: " +testTime + "\n" + testLog);
+                "\n Fall time: " +testTime + "\n" + testLog);*/
 
 
     }
@@ -117,10 +117,10 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
     private void updateStatus(boolean crashmode){
 
         if (crashmode == true){
-            //mStatus.setText("Crash detected! Notifying Emergency contact shortly..."); //counter?
-            mStatus.setText("Current mag value: " + accelMagnitude + "\n Highest mag so far: " +
+            mStatus.setText("Crash detected! Notifying Emergency contact shortly..."); //counter?
+            /*mStatus.setText("Current mag value: " + accelMagnitude + "\n Highest mag so far: " +
                     highestMag + "\n Lowest mag so far: " + lowestMag + "\n This fall: " + fallMag  +
-                    "\n Fall time: " +testTime + "\n" + testLog);
+                    "\n Fall time: " +testTime + "\n" + testLog);*/
             //mStatus.setBackgroundColor(Color.RED);
             setBackground(red);
             mOkay.setEnabled(true);
@@ -128,12 +128,12 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
             //notify Emergency contacts
         }
         else {
-            //mStatus.setText("Nothing to Report"); //counter?
-            mStatus.setText("Current mag value: " + accelMagnitude + "\n Highest mag so far: " +
+            mStatus.setText("Nothing to Report"); //counter?
+            /*mStatus.setText("Current mag value: " + accelMagnitude + "\n Highest mag so far: " +
                     highestMag + "\n Lowest mag so far: " + lowestMag + "\n This fall: " + fallMag
                     +
                     "\n Fall time: " +testTime + "\n" + testLog);
-            //mStatus.setBackgroundColor(Color.GREEN);
+            //mStatus.setBackgroundColor(Color.GREEN);*/
             setBackground(green);
             mOkay.setEnabled(false);
             mOkay.setBackgroundColor(Color.TRANSPARENT);
