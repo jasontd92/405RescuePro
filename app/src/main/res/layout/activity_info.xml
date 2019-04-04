@@ -5,21 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.jasontd.rescuepro405.InfoActivity">
-
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </android.support.design.widget.AppBarLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,14 +31,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="John Doe"
+                android:textColor="@color/black"
                 android:id="@+id/name"
                 android:textSize="30dp"
                 android:layout_marginRight="40dp"/>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/btnColor"
                 android:background="@drawable/bigcircle"/>
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:text="Status: OK"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:id="@+id/status"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +75,6 @@
             android:id="@+id/speedofimpact"
             android:text="Speed of Impact: N/A"/>
         <Button
-            android:id="@+id/emergency_button"
             android:layout_width="200dp"
             android:layout_height="75dp"
             android:layout_marginTop="30dp"
@@ -82,5 +88,4 @@
             android:background="@android:color/holo_green_light"
             android:id="@+id/callbutton"/>
     </LinearLayout>
-
 </android.support.design.widget.CoordinatorLayout>

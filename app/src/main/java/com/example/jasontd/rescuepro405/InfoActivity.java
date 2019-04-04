@@ -11,7 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import javax.xml.soap.Text;
 
 public class InfoActivity extends AppCompatActivity {
 
@@ -32,6 +35,8 @@ public class InfoActivity extends AppCompatActivity {
         TextView txtLocation = (TextView)findViewById(R.id.location);
         TextView txtSpeed = (TextView)findViewById(R.id.speedofimpact);
         Button btnCall = (Button)findViewById(R.id.callbutton);
+        TextView txtStatus = (TextView)findViewById(R.id.status);
+        ImageView btnColor = (ImageView)findViewById(R.id.btnColor);
         mEmergency = (Button)findViewById(R.id.emergency_button);
 
         Bundle b = getIntent().getExtras();
@@ -47,6 +52,8 @@ public class InfoActivity extends AppCompatActivity {
                 txtLocation.setText("Location: Boise, ID");
                 txtSpeed.setText("Crash Speed: N/A");
                 btnCall.setText("Call John");
+                txtStatus.setText("Status: OK");
+                btnColor.setBackgroundResource(R.drawable.bigcircle);
                 setStatus("ok");
 
             }
@@ -57,6 +64,8 @@ public class InfoActivity extends AppCompatActivity {
                 txtLocation.setText("Location: Pasco, WA");
                 txtSpeed.setText("Crash Speed: N/A");
                 btnCall.setText("Call Jane");
+                txtStatus.setText("Status: Crash detected, driver ok");
+                btnColor.setBackgroundResource(R.drawable.bigwarningcircle);
                 setStatus("ok");
             }
             else if (name.equals("Jack Murdoch"))
@@ -66,6 +75,8 @@ public class InfoActivity extends AppCompatActivity {
                 txtLocation.setText("Location: Kennewick, WA");
                 txtSpeed.setText("Crash Speed: N/A");
                 btnCall.setText("Call Jack");
+                txtStatus.setText("Status: Crash detected, no response from driver");
+                btnColor.setBackgroundResource(R.drawable.bigdangercircle);
                 setStatus("ok");
             }
             else if (name.equals("Mike Stevens"))
@@ -74,7 +85,9 @@ public class InfoActivity extends AppCompatActivity {
                 txtTime.setText("Time of Accident: 4:05 PM");
                 txtLocation.setText("Location: Payson, UT");
                 txtSpeed.setText("Crash Speed: 60mph");
-                btnCall.setText("Call Michael");
+                btnCall.setText("Call Mike");
+                txtStatus.setText("Status: OK");
+                btnColor.setBackgroundResource(R.drawable.bigcircle);
                 setStatus("ok");
             }
         }
