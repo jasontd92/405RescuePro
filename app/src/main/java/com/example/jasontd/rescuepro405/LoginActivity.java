@@ -19,6 +19,9 @@ public class LoginActivity extends AppCompatActivity {
         mManager = (Button) findViewById(R.id.manager_login);
         mEmployee = (Button) findViewById(R.id.employee_login);
 
+        //mManager.setBackgroundColor(getResources().getColor(R.color.grey_enabled));
+        //mEmployee.setBackgroundColor(getResources().getColor(R.color.grey_enabled));
+
         mManager.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view){

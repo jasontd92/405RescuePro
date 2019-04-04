@@ -1,15 +1,21 @@
 package com.example.jasontd.rescuepro405;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class InfoActivity extends AppCompatActivity {
+
+    private Button mEmergency;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +24,7 @@ public class InfoActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         this.getSupportActionBar().setTitle("Employee Status");
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView txtName = (TextView)findViewById(R.id.name);
         TextView txtVehicle = (TextView)findViewById(R.id.vehicle);
@@ -25,6 +32,7 @@ public class InfoActivity extends AppCompatActivity {
         TextView txtLocation = (TextView)findViewById(R.id.location);
         TextView txtSpeed = (TextView)findViewById(R.id.speedofimpact);
         Button btnCall = (Button)findViewById(R.id.callbutton);
+        mEmergency = (Button)findViewById(R.id.emergency_button);
 
         Bundle b = getIntent().getExtras();
         if (b != null)
@@ -39,6 +47,8 @@ public class InfoActivity extends AppCompatActivity {
                 txtLocation.setText("Location: Boise, ID");
                 txtSpeed.setText("Crash Speed: N/A");
                 btnCall.setText("Call John");
+                setStatus("ok");
+
             }
             else if (name.equals("Jane Smith"))
             {
@@ -47,6 +57,7 @@ public class InfoActivity extends AppCompatActivity {
                 txtLocation.setText("Pasco, WA");
                 txtSpeed.setText("N/A");
                 btnCall.setText("Call Jane");
+                setStatus("ok");
             }
             else if (name.equals("Jack Murdoch"))
             {
@@ -55,6 +66,7 @@ public class InfoActivity extends AppCompatActivity {
                 txtLocation.setText("Kennewick, WA");
                 txtSpeed.setText("N/A");
                 btnCall.setText("Call Jack");
+                setStatus("ok");
             }
             else if (name.equals("Michael Stevenson"))
             {
@@ -63,7 +75,43 @@ public class InfoActivity extends AppCompatActivity {
                 txtLocation.setText("Payson, UT");
                 txtSpeed.setText("60mph");
                 btnCall.setText("Call Michael");
+                setStatus("ok");
             }
         }
+    }
+
+    private void setStatus(String status){
+        if (status.toLowerCase().equals("ok")){
+            mEmergency.setEnabled(false);
+            mEmergency.setBackgroundColor(getResources().getColor(R.color.grey_disabled));
+        }
+    }
+
+    //Up button
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                startTopActivity(this.getApplicationContext(), false);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    //Logging out or just returning to MapFragment
+    private void startTopActivity(Context context, boolean newInstance)
+    {
+        Intent intent = new Intent(context, MainActivity.class);
+        if (newInstance)
+        {
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        }
+        else
+        {
+            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        }
+        context.startActivity(intent);
     }
 }
