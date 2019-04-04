@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -35,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, InfoActivity.class);
         Bundle b = new Bundle();
         TableRow row = (TableRow)view;
-        TextView personName = (TextView)row.getChildAt(0);
+        LinearLayout nameLayout = (LinearLayout)row.getChildAt(0);
+        TextView personName = (TextView)nameLayout.getChildAt(1);
         b.putString("name", personName.getText().toString());
         intent.putExtras(b);
         startActivity(intent);

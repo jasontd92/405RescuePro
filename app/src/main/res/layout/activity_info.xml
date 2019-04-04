@@ -79,7 +79,8 @@
             android:layout_height="75dp"
             android:layout_marginTop="30dp"
             android:background="@android:color/holo_red_light"
-            android:text="REQUEST EMS TO SCENE"/>
+            android:text="REQUEST EMS TO SCENE"
+            android:id="@+id/emergency_button"/>
         <Button
             android:layout_width="200dp"
             android:layout_height="25dp"

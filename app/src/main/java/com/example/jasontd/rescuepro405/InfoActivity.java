@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import javax.xml.soap.Text;
 
 public class InfoActivity extends AppCompatActivity {
 
