@@ -21,6 +21,12 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        android:text="Click on an employee to see more details"/>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
