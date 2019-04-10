@@ -20,7 +20,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
+                android:background="@color/logo_blue"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         </android.support.design.widget.AppBarLayout>
@@ -41,7 +41,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="45dp"
             android:layout_marginVertical="15dp"
-            android:background="@color/green"
+            android:background="@drawable/btn_rounded_green"
             android:text="@string/im_okay" />
 
     </RelativeLayout>

@@ -13,7 +13,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/logo_blue"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </android.support.design.widget.AppBarLayout>
     <LinearLayout
@@ -78,7 +78,7 @@
             android:layout_width="200dp"
             android:layout_height="75dp"
             android:layout_marginTop="30dp"
-            android:background="@android:color/holo_red_light"
+            android:background="@drawable/btn_rounded_red"
             android:text="REQUEST EMS TO SCENE"
             android:id="@+id/emergency_button"/>
         <Button
@@ -86,7 +86,7 @@
             android:layout_height="25dp"
             android:layout_marginTop="20dp"
             android:text="Call John"
-            android:background="@android:color/holo_green_light"
+            android:background="@drawable/btn_rounded_call"
             android:id="@+id/callbutton"/>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

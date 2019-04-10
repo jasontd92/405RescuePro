@@ -65,7 +65,7 @@ public class InfoActivity extends AppCompatActivity {
                 btnCall.setText("Call Jane");
                 txtStatus.setText("Status: Crash detected, driver ok");
                 btnColor.setBackgroundResource(R.drawable.bigwarningcircle);
-                setStatus("ok");
+                setStatus("warning");
             }
             else if (name.equals("Jack Murdoch"))
             {
@@ -76,7 +76,7 @@ public class InfoActivity extends AppCompatActivity {
                 btnCall.setText("Call Jack");
                 txtStatus.setText("Status: Crash detected, no response from driver");
                 btnColor.setBackgroundResource(R.drawable.bigdangercircle);
-                setStatus("ok");
+                setStatus("danger");
             }
             else if (name.equals("Mike Stevens"))
             {
@@ -95,7 +95,17 @@ public class InfoActivity extends AppCompatActivity {
     private void setStatus(String status){
         if (status.toLowerCase().equals("ok")){
             mEmergency.setEnabled(false);
-            mEmergency.setBackgroundColor(getResources().getColor(R.color.grey_disabled));
+            //mEmergency.setBackgroundColor(getResources().getColor(R.color.grey_disabled));
+            mEmergency.setVisibility(View.INVISIBLE);
+        }
+        if (status.toLowerCase().equals("warning")){
+            mEmergency.setEnabled(false);
+            //mEmergency.setBackgroundColor(getResources().getColor(R.color.logo_blue));
+            mEmergency.setVisibility(View.INVISIBLE);
+        }
+        if (status.toLowerCase().equals("danger")){
+            mEmergency.setEnabled(true);
+            //mEmergency.setBackgroundColor(getResources().getColor(R.color.logo_blue));
         }
     }
 
