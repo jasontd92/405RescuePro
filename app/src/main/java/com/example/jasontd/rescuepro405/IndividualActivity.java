@@ -124,7 +124,7 @@ public class IndividualActivity extends AppCompatActivity implements SensorEvent
             //mStatus.setBackgroundColor(Color.RED);
             setBackground(red);
             mOkay.setEnabled(true);
-            mOkay.setBackgroundColor(Color.GREEN);
+            mOkay.setBackgroundResource(R.drawable.btn_rounded_green);
             //notify Emergency contacts
         }
         else {
